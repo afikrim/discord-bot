@@ -1,6 +1,7 @@
 .env.js
 
 node_modules
+data/guild/*/
 
 package-lock.json
 yarn.lock
