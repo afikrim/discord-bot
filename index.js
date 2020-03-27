@@ -1,7 +1,5 @@
 const Discord = require('discord.js')
 
-require('./server')
-
 const { token } = require('./.env')
 const { message } = require('./core')
 const { createFolder, deleteFolder } = require('./lib')
