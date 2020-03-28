@@ -5,7 +5,7 @@ const scheduleModel = require('../db/models/schedule')
 
 const Schedule = scheduleModel(sequelize, Sequelize)
 
-const PREFIX = '--'
+const PREFIX = '-'
 
 const index = (message) => {
   Schedule.findAll({ where: { guildId: message.guild.id } })
