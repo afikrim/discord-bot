@@ -19,6 +19,7 @@ module.exports = {
     'no-unused-vars': 'warn',
     'no-console': 'off',
     'no-useless-return': 'off',
-    'consistent-return': 'off'
+    'consistent-return': 'off',
+    'no-param-reassign': 'off'
   },
 }

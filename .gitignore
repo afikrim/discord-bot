@@ -1,7 +1,10 @@
 .env.js
 
 node_modules
-data/guild/*/
+
+db/database.sqlite
 
 package-lock.json
 yarn.lock
+
+*.log

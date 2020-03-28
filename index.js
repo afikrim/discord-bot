@@ -2,7 +2,6 @@ const Discord = require('discord.js')
 
 const { token } = require('./.env')
 const { message } = require('./core')
-const { createFolder, deleteFolder } = require('./lib')
 
 const client = new Discord.Client()
 
@@ -65,15 +64,11 @@ client.on('guildCreate', (guild) => {
     }
   })
 
-  createFolder(guild)
-
   printServers()
 })
 
 client.on('guildDelete', (guild) => {
   console.log(`Bot kicked from a guild - ${guild}.`)
-
-  deleteFolder(guild)
 
   printServers()
 })
