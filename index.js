@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-const { message } = require('./core')
+const { addGuild, delGuild, message } = require('./core')
 
 require('dotenv').config()
 
@@ -67,11 +67,15 @@ client.on('guildCreate', (guild) => {
     }
   })
 
+  addGuild(guild)
+
   printServers()
 })
 
 client.on('guildDelete', (guild) => {
   console.log(`Bot kicked from a guild - ${guild}.`)
+
+  delGuild(guild)
 
   printServers()
 })
