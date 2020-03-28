@@ -116,11 +116,11 @@ const destroy = (message) => {
 }
 
 const schedule = (message) => {
-  if (message.content.includes('--create')) {
+  if (message.content.includes(`${PREFIX}create`)) {
     create(message)
-  } else if (message.content.includes('--update')) {
+  } else if (message.content.includes(`${PREFIX}update`)) {
     update(message)
-  } else if (message.content.includes('--delete')) {
+  } else if (message.content.includes(`${PREFIX}delete`)) {
     destroy(message)
   } else {
     index(message)
