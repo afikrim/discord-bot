@@ -1,7 +1,8 @@
 const Discord = require('discord.js')
 
-const { token } = require('./.env')
 const { message } = require('./core')
+
+require('dotenv').config()
 
 const client = new Discord.Client()
 
@@ -75,4 +76,4 @@ client.on('guildDelete', (guild) => {
 
 client.on('message', message)
 
-client.login(token)
+client.login(process.env.TOKEN)
