@@ -5,7 +5,7 @@ const scheduleModel = require('../db/models/schedule')
 
 const Schedule = scheduleModel(sequelize, Sequelize)
 
-const PREFIX = '-'
+const PREFIX = '--'
 
 const index = (message) => {
   Schedule.findAll({ where: { guildId: message.guild.id } })
@@ -82,13 +82,24 @@ const update = (message) => {
     }
   })
 
-  Schedule.update(value, { where: { id } })
+  Schedule.findOne({ Where: { id } })
     .then((res) => {
-      message.reply(`Schedule with id - ${res.id} - updated`)
+      if (res.guildId != message.guild.id) {
+        message.reply("You don't have permission to access this resources.")
+        return
+      }
+
+      Schedule.update(value, { where: { id } })
+        .then((res) => {
+          message.reply(`Schedule with id - ${res.id} - updated`)
+        })
+        .catch((err) => {
+          console.error(err)
+          message.reply('Oops! Something went wrong.')
+        })
     })
     .catch((err) => {
       console.error(err)
-      message.reply('Oops! Something went wrong.')
     })
 }
 
@@ -105,13 +116,24 @@ const destroy = (message) => {
     }
   })
 
-  Schedule.destroy({ where: { id } })
+  Schedule.findOne({ Where: { id } })
     .then((res) => {
-      message.reply(`Schedule with id - ${id} - deleted`)
+      if (res.guildId != message.guild.id) {
+        message.reply("You don't have permission to access this resources.")
+        return
+      }
+
+      Schedule.destroy({ where: { id } })
+        .then(() => {
+          message.reply(`Schedule with id - ${id} - deleted`)
+        })
+        .catch((err) => {
+          console.error(err)
+          message.reply('Oops! Something went wrong.')
+        })
     })
     .catch((err) => {
       console.error(err)
-      message.reply('Oops! Something went wrong.')
     })
 }
 

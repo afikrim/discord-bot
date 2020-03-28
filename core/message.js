@@ -22,16 +22,16 @@ const embedMessage = new Discord.MessageEmbed()
     {
       name: 'Create a schedule',
       value:
-        '!schedule -create -name <name> -description <description> -date <date>',
+        '!schedule --create --name <name> --description <description> --date <date>',
     },
     {
       name: 'Update a schedule',
       value:
-        '!schedule -update -id <id> -name <name> -description <description> -date <date>',
+        '!schedule --update --id <id> --name <name> --description <description> --date <date>',
     },
     {
       name: 'Delete a schedule',
-      value: '!schedule -delete -id <id>',
+      value: '!schedule --delete --id <id>',
     }
   )
   .setTimestamp()
