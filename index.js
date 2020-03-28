@@ -4,6 +4,8 @@ const { message } = require('./core')
 
 require('dotenv').config()
 
+process.setMaxListeners(0)
+
 const client = new Discord.Client()
 
 const printServers = () => {
